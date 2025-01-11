@@ -39,7 +39,7 @@ def run_emulator(emulator):
         # Проверяем, запущен ли процесс Nox
         while is_nox_running():
             print(f"[{datetime.now()}] Процесс Nox.exe запущен, ожидаем 1 минуту...")
-            time.sleep(60)  # Сон на 1 минуту
+            time.sleep(15)  # Сон на 1 минуту
 
 
 
