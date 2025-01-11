@@ -4,7 +4,7 @@ import time
 import threading
 import os
 import psutil
-
+from datetime import datetime
 
 nox_path = "C:\\Program Files (x86)\\Nox\\bin\\Nox.exe"
 
@@ -34,15 +34,16 @@ def is_nox_running():
 # Функция для запуска эмулятора
 def run_emulator(emulator):
     while True:
-        print(f"Проверка, запущен ли процесс Nox...")
+        print(f"[{datetime.now()}] Проверка, запущен ли процесс Nox...")
 
         # Проверяем, запущен ли процесс Nox
         while is_nox_running():
-            print("Процесс Nox.exe запущен, ожидаем 1 минуту...")
+            print(f"[{datetime.now()}] Процесс Nox.exe запущен, ожидаем 1 минуту...")
             time.sleep(60)  # Сон на 1 минуту
 
 
-        print(f"Запуск {emulator['name']} ({emulator['path']})")
+
+        print(f"[{datetime.now()}] Запуск {emulator['name']} ({emulator['path']})")
         # Запуск процесса Nox
         process = subprocess.Popen([nox_path, emulator["path"]])
 
@@ -50,11 +51,11 @@ def run_emulator(emulator):
         time.sleep(180)
 
         # Завершение процесса Nox
-        print(f"Завершение {emulator['name']}")
+        print(f"[{datetime.now()}] Завершение {emulator['name']}")
         subprocess.call(["taskkill", "/IM", "Nox.exe", "/F"])
 
         # Ожидание указанного интервала
-        print(f"Ожидание {emulator['interval']} секунд до следующего запуска {emulator['name']}")
+        print(f"[{datetime.now()}] Ожидание {emulator['interval']} секунд до следующего запуска {emulator['name']}")
         if emulator['interval'] == 4:
             time.sleep(random.randint(13500, 15500))
         elif emulator['interval'] == 6:
