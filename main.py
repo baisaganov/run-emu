@@ -3,6 +3,7 @@ import subprocess
 import time
 import threading
 import os
+import psutil
 
 
 nox_path = "C:\\Program Files (x86)\\Nox\\bin\\Nox.exe"
@@ -23,10 +24,24 @@ emulators = [
     {"name": "compart", "path": "", "interval": 6}  # 5 часов
 ]
 
+# Функция для проверки, запущен ли процесс Nox.exe
+def is_nox_running():
+    for proc in psutil.process_iter(['name']):
+        if proc.info['name'] == "Nox.exe":
+            return True
+    return False
 
 # Функция для запуска эмулятора
 def run_emulator(emulator):
     while True:
+        print(f"Проверка, запущен ли процесс Nox...")
+
+        # Проверяем, запущен ли процесс Nox
+        while is_nox_running():
+            print("Процесс Nox.exe запущен, ожидаем 1 минуту...")
+            time.sleep(60)  # Сон на 1 минуту
+
+
         print(f"Запуск {emulator['name']} ({emulator['path']})")
         # Запуск процесса Nox
         process = subprocess.Popen([nox_path, emulator["path"]])
