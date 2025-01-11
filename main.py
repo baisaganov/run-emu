@@ -56,6 +56,7 @@ for emulator in emulators:
     thread = threading.Thread(target=run_emulator, args=(emulator,))
     threads.append(thread)
     thread.start()
+    time.sleep(185)
 
 # Ожидание завершения всех потоков
 for thread in threads:
