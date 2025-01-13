@@ -52,7 +52,10 @@ def run_emulator(emulator):
 
         # Завершение процесса Nox
         print(f"[{datetime.now()}] Завершение {emulator['name']}")
-        subprocess.call(["taskkill", "/IM", "Nox.exe", "/F"])
+        try:
+            subprocess.call(["taskkill", "/IM", "Nox.exe", "/F"])
+        except Exception as e:
+            print(f"[{datetime.now()}] Процесс не найден")
 
         # Ожидание указанного интервала
         t = random.randint(int(3600*emulator['interval']-3600*emulator['interval']*0.2), int(3600*emulator['interval']+3600*emulator['interval']*0.2))
