@@ -55,15 +55,12 @@ def run_emulator(emulator):
         subprocess.call(["taskkill", "/IM", "Nox.exe", "/F"])
 
         # Ожидание указанного интервала
-        print(f"[{datetime.now()}] Ожидание {emulator['interval']} секунд до следующего запуска {emulator['name']}")
-        if emulator['interval'] == 4:
-            time.sleep(random.randint(int(3600*4-3600*4*0.2), int(3600*4+3600*4*0.2)))
-        elif emulator['interval'] == 6:
-            time.sleep(random.randint(int(3600*6-3600*6*0.2), int(3600*6+3600*6*0.2)))
-        elif emulator['interval'] == 12:
-            time.sleep(random.randint(int(3600*12-3600*12*0.2), int(3600*12+3600*12*0.2)))
-        elif emulator['interval'] == 24:
-            time.sleep(random.randint(int(3600*18-3600*18*0.2), int(3600*18+3600*18*0.2)))
+        t = random.randint(int(3600*emulator['interval']-3600*emulator['interval']*0.2), int(3600*emulator['interval']+3600*emulator['interval']*0.2))
+        if emulator['interval'] == 24:
+            t = random.randint(int(3600*18-3600*18*0.2), int(3600*18+3600*18*0.2))
+        time.sleep(t)
+
+        print(f"[{datetime.now()}] Ожидание {t/3600} ч до следующего запуска {emulator['name']}")
 
 
 # Создание потоков для каждого эмулятора
