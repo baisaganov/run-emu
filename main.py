@@ -61,7 +61,7 @@ def run_emulator(emulator):
         t = random.randint(int(3600*emulator['interval']-3600*emulator['interval']*0.2), int(3600*emulator['interval']+3600*emulator['interval']*0.2))
         if emulator['interval'] == 24:
             t = random.randint(int(3600*18-3600*18*0.2), int(3600*18+3600*18*0.2))
-        print(f"[{datetime.now()}] Ожидание {t/3600} ч до следующего запуска {emulator['name']}")
+        print(f"[{datetime.now()}] Ожидание {t/3600} ч до следующего запуска {emulator['name']}\n\n")
         time.sleep(t)
 
 
