@@ -63,7 +63,7 @@ def run_emulator(emulator):
         elif emulator['interval'] == 12:
             time.sleep(random.randint(int(3600*12-3600*12*0.2), int(3600*12+3600*12*0.2)))
         elif emulator['interval'] == 24:
-            time.sleep(random.randint(int(3600*24-3600*24*0.2), int(3600*24+3600*24*0.2)))
+            time.sleep(random.randint(int(3600*18-3600*18*0.2), int(3600*18+3600*18*0.2)))
 
 
 # Создание потоков для каждого эмулятора
