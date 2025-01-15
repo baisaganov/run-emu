@@ -17,10 +17,10 @@ emulators = [
     {"name": "lisan", "path": "-clone:Nox_3", "interval": 24},  # 5 часов
     {"name": "lux", "path": "-clone:Nox_4", "interval": 12},  # 5 часов
     {"name": "mistie", "path": "-clone:Nox_10", "interval": 24},  # 5 часов
-    {"name": "revor_", "path": "-clone:Nox_5", "interval": 6},  # 5 часов
+    {"name": "revor_", "path": "-clone:Nox_5", "interval": 12},  # 5 часов
     {"name": "mo0n", "path": "-clone:Nox_6", "interval": 24},  # 5 часов
-    {"name": "ministr", "path": "-clone:Nox_7", "interval": 6},  # 5 часов
-    {"name": "alpaka", "path": "-clone:Nox_8", "interval": 6},  # 5 часов
+    {"name": "ministr", "path": "-clone:Nox_7", "interval": 12},  # 5 часов
+    {"name": "alpaka", "path": "-clone:Nox_8", "interval": 12},  # 5 часов
     {"name": "compart", "path": "", "interval": 12}  # 5 часов
 ]
 
