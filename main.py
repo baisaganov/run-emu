@@ -55,6 +55,8 @@ def run_emulator(emulator):
         print(f"[{datetime.now()}] Завершение {emulator['name']}")
         try:
             subprocess.call(["taskkill", "/IM", "Nox.exe", "/F"])
+            subprocess.call(["taskkill", "/IM", "NoxVMHandle.exe", "/F"])
+            subprocess.call(["taskkill", "/IM", "NoxVMSVC.exe", "/F"])
         except Exception as e:
             print(f"[{datetime.now()}] Процесс не найден")
 
