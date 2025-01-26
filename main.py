@@ -40,7 +40,7 @@ def run_emulator(emulator):
         # Проверяем, запущен ли процесс Nox
         while is_nox_running():
             print(f"[{datetime.now()}] Процесс Nox.exe запущен, ожидаем 1 минуту...")
-            time.sleep(15)  # Сон на 1 минуту
+            time.sleep(60)  # Сон на 1 минуту
 
 
 
@@ -49,7 +49,7 @@ def run_emulator(emulator):
         process = subprocess.Popen([nox_path, emulator["path"]])
 
         # Ожидание 180 секунд
-        time.sleep(180)
+        time.sleep(300)
 
         # Завершение процесса Nox
         print(f"[{datetime.now()}] Завершение {emulator['name']}")
@@ -75,7 +75,7 @@ for emulator in emulators:
     thread = threading.Thread(target=run_emulator, args=(emulator,))
     threads.append(thread)
     thread.start()
-    time.sleep(220)
+    time.sleep(350)
 
 # Ожидание завершения всех потоков
 for thread in threads:
