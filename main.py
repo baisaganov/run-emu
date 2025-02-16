@@ -22,7 +22,7 @@ emulators = [
     {"name": "ministr", "path": "-clone:Nox_7", "interval": 12},  # 5 часов
     {"name": "alpaka", "path": "-clone:Nox_8", "interval": 12},  # 5 часов
     {"name": "compart", "path": "", "interval": 12},  # 5 часов
-    {"name": "skywhy", "path": "-clone:Nox_12", "interval": 6}
+    {"name": "skywhy", "path": "-clone:Nox_12", "interval": 12}
 ]
 
 # Функция для проверки, запущен ли процесс Nox.exe
